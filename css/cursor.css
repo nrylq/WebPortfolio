@@ -1,0 +1,65 @@
+/* Custom Cursor Styles */
+body {
+    cursor: none; /* Hide default cursor */
+}
+
+.custom-cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid var(--sage-green);
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+    transform: translate(-50%, -50%);
+}
+
+.cursor-wand {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="%23b5c9a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4.5l-4 4L4 8l8.5 8.5L14 21l5-5-3.5-3.5L20 8l-5-3.5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translate(-50%, -50%) rotate(45deg);
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.7));
+}
+
+.custom-cursor.grow {
+    transform: translate(-50%, -50%) scale(2.5);
+    background-color: rgba(181, 201, 161, 0.2);
+    border-color: rgba(181, 201, 161, 0.6);
+}
+
+/* Clickable elements cursor styles */
+a, button, input, .btn, .upload-label {
+    cursor: none;
+}
+
+a:hover ~ .custom-cursor,
+button:hover ~ .custom-cursor,
+input:hover ~ .custom-cursor,
+.btn:hover ~ .custom-cursor,
+.upload-label:hover ~ .custom-cursor {
+    transform: translate(-50%, -50%) scale(2.5);
+    background-color: rgba(181, 201, 161, 0.2);
+}
+
+/* For mobile devices, restore default cursor */
+@media (max-width: 768px) {
+    body {
+        cursor: auto;
+    }
+    
+    .custom-cursor, .cursor-wand {
+        display: none;
+    }
+    
+    a, button, input, .btn, .upload-label {
+        cursor: pointer;
+    }
+}
