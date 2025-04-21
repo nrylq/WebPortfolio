@@ -1,0 +1,81 @@
+.butterfly {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1000;
+    animation: flying 20s linear infinite;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.butterfly img {
+    opacity: 0.9;
+    transform-origin: center;
+    animation: flutter 2s ease-in-out infinite;
+    width: clamp(20px, 4vw, 45px); /* Responsive size */
+    height: auto;
+}
+
+@keyframes flying {
+    0% {
+        transform: translate(calc(-10vw), 50vh) scale(var(--butterfly-scale, 1));
+    }
+    25% {
+        transform: translate(calc(30vw), 20vh) scale(var(--butterfly-scale, 1.1));
+    }
+    50% {
+        transform: translate(calc(60vw), 60vh) scale(var(--butterfly-scale, 0.9));
+    }
+    75% {
+        transform: translate(calc(90vw), 30vh) scale(var(--butterfly-scale, 1.2));
+    }
+    100% {
+        transform: translate(calc(110vw), 50vh) scale(var(--butterfly-scale, 1));
+    }
+}
+
+@keyframes flutter {
+    0% {
+        transform: rotate(-10deg) scaleX(1);
+    }
+    50% {
+        transform: rotate(10deg) scaleX(0.8);
+    }
+    100% {
+        transform: rotate(-10deg) scaleX(1);
+    }
+}
+
+#butterflies-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+/* Mobile-specific adjustments */
+@media screen and (max-width: 768px) {
+    .butterfly img {
+        width: clamp(15px, 5vw, 30px); /* Smaller on mobile */
+    }
+
+    @keyframes flying {
+        0% {
+            transform: translate(calc(-15vw), 50vh) scale(var(--butterfly-scale, 1));
+        }
+        25% {
+            transform: translate(calc(25vw), 30vh) scale(var(--butterfly-scale, 1.1));
+        }
+        50% {
+            transform: translate(calc(50vw), 60vh) scale(var(--butterfly-scale, 0.9));
+        }
+        75% {
+            transform: translate(calc(75vw), 40vh) scale(var(--butterfly-scale, 1.2));
+        }
+        100% {
+            transform: translate(calc(115vw), 50vh) scale(var(--butterfly-scale, 1));
+        }
+    }
+} 
