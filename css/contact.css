@@ -1,0 +1,117 @@
+body {
+    background: #fff;
+}
+body.dark-mode {
+    background: #222;
+}
+.contact-main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 90vh;
+    padding: 2rem 0;
+}
+.contact-container {
+    display: flex;
+    gap: 2rem;
+    background: none;
+}
+.contact-info-box, .contact-form-box {
+    background: #b5c9a1;
+    color: #333;
+    border-radius: 10px;
+    padding: 2rem;
+    min-width: 350px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    flex: 1;
+}
+
+body.dark-mode .contact-info-box, body.dark-mode .contact-form-box {
+    background: #222;
+    color: #b5c9a1;
+}
+body.dark-mode .contact-info-box h2,
+body.dark-mode .contact-form-box h2,
+body.dark-mode .contact-info-box p,
+body.dark-mode .contact-form-box label,
+body.dark-mode .contact-detail strong {
+    color: #b5c9a1;
+}
+
+.contact-info-box h2, .contact-form-box h2 {
+    color: #254441;
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+.contact-info-box p {
+    margin-bottom: 1.5rem;
+    color: #254441;
+}
+.contact-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+.contact-detail i {
+    background: #254441;
+    color: #fff;
+    border-radius: 50%;
+    padding: 0.7rem;
+    font-size: 1.2rem;
+    margin-top: 0.2rem;
+}
+.contact-detail strong {
+    color: #254441;
+}
+.contact-form-box form {
+    display: flex;
+    flex-direction: column;
+}
+.contact-form-box label {
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+    color: #254441;
+    font-weight: 500;
+}
+.contact-form-box input,
+.contact-form-box textarea {
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+.contact-form-box button {
+    margin-top: 1rem;
+    background: #254441;
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.contact-form-box button:hover {
+    background: #3a665b;
+}
+body.dark-mode .contact-form-box button {
+    background: #b5c9a1;
+    color: #222;
+}
+body.dark-mode .contact-form-box button:hover {
+    background: #d1e0c5;
+    color: #222;
+}
+@media (max-width: 900px) {
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-info-box, .contact-form-box {
+        min-width: unset;
+        width: 100%;
+    }
+} 

@@ -1,0 +1,446 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Body Styling */
+body {
+    background-color: #ffffff;
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* Header Styling */
+header {
+    background-color: #ffffff;
+    color: #333333;
+    padding: 1.3rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo h1 {
+    color: #8ea676 !important;
+    font-weight: 700 !important;
+    font-size: 1.8rem;
+    transition: color 0.3s;
+}
+
+.logo:hover h1 {
+    color: #a8d5ba;
+}
+
+body.dark-mode .logo h1 {
+    color: #d1e0c5 !important;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+nav ul li a {
+    color: #333333;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.3s;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: #a8d5ba;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #a8d5ba;
+    transition: width 0.3s;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+/* Main Content */
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.quiz-section {
+    margin-bottom: 3rem;
+}
+
+.quiz-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--sage-green-dark);
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 0.5rem;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+.quiz-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: #a8d5ba;
+}
+
+.quiz-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    min-height: 350px;
+}
+
+.quiz-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.quiz-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.quiz-info h3 {
+    margin-bottom: 1rem;
+    color: #333333;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.quiz-btn {
+    display: inline-block;
+    background-color: #a8d5ba;
+    color: #333333;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    font-style: italic;
+    border: none;
+    box-shadow: none;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+.quiz-btn:hover {
+    background-color: #8ab9a0;
+    transform: translateY(-2px);
+}
+
+.coming-soon {
+    display: inline-block;
+    background-color: #a8d5ba;
+    color: #333333;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-style: italic;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+body.dark-mode .quiz-section h2 {
+    color: #a8d5ba;
+}
+
+body.dark-mode .quiz-card {
+    background: #1e1e1e;
+}
+
+body.dark-mode .quiz-info h3 {
+    color: #a8d5ba;
+}
+
+body.dark-mode .quiz-btn {
+    background-color: #1e1e1e;
+    color: #a8d5ba;
+    border: 1px solid #a8d5ba;
+}
+
+body.dark-mode .quiz-btn:hover {
+    background-color: #8ab9a0;
+}
+
+body.dark-mode .coming-soon {
+    background-color: #1e1e1e;
+    color: #a8d5ba;
+    border: 1px solid #a8d5ba;
+}
+
+.quiz-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.quiz-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #ffffff;
+    padding: 2rem;
+    text-align: center;
+    color: #333333;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.social-links li {
+    margin: 0 1rem;
+}
+
+.social-links a {
+    color: #333333;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #a8d5ba;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #a8d5ba;
+}
+
+body.dark-mode header {
+    background-color: #121212;
+    color: #a8d5ba;
+}
+
+body.dark-mode nav ul li a {
+    color: #a8d5ba;
+}
+
+body.dark-mode .social-links a {
+    color: #a8d5ba;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo {
+        margin-bottom: 1rem;
+    }
+
+    .hamburger {
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+
+    .quiz-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quiz-card {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .quiz-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .quiz-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .quiz-btn, .coming-soon {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    footer {
+        padding: 1.5rem;
+    }
+
+    .social-links a {
+        font-size: 1.2rem;
+    }
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: #a8d5ba;
+}
+
+/* Dark mode modal styles */
+body.dark-mode .modal {
+    background-color: rgba(0, 0, 0, 0.95);
+}
+
+body.dark-mode .close-modal {
+    color: #a8d5ba;
+}
+
+body.dark-mode .close-modal:hover {
+    color: #8ab9a0;
+}
+
+.quiz-intro {
+    text-align: center;
+    margin: 2.5rem auto 2.5rem auto;
+    max-width: 700px;
+    padding: 2rem 1rem 2.5rem 1rem;
+}
+.quiz-intro h1 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    color: #333;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+.quiz-intro .quiz-quote {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #6b7c6a;
+    margin-bottom: 1.5rem;
+}
+.quiz-intro h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.7rem;
+    color: #a8d5ba;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+.quiz-intro .quiz-desc {
+    font-size: 1.1rem;
+    color: #222;
+}
+
+body.dark-mode .quiz-intro h1,
+body.dark-mode .quiz-intro .quiz-desc {
+    color: #d1e0c5;
+}
+body.dark-mode .quiz-intro .quiz-quote {
+    color: #a8d5ba;
+}
+body.dark-mode .quiz-intro h2 {
+    color: #a8d5ba;
+}
+
+.sage-green-dark {
+    color: var(--sage-green-dark) !important;
+}
+
+.logo h1, .page-title, .welcome-text h2, .featured-work h2, .project-info h3, .about-title, .projects-title, .quiz-section h2, .quiz-intro h1, .quiz-intro h2, .contact-info-box h2, .contact-form-box h2, .footer-section h3, .nav-links a {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+:root {
+    --sage-green-light: #d1e0c5;
+} 

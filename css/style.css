@@ -12,6 +12,7 @@
     --border-radius: 8px;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 * {
     margin: 0;
@@ -20,7 +21,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     background-color: var(--white);
     color: var(--black);
@@ -762,27 +763,51 @@ footer {
 }
 
 .quiz-item {
-    background-color: var(--off-white);
+    background-color: var(--white);
     border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--shadow);
     padding: 20px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .quiz-item h3 {
     color: var(--sage-green-dark);
     margin-bottom: 15px;
-    text-align: center;
+    font-size: 1.2rem;
 }
 
 .quiz-image-container {
     position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius);
 }
 
-.image-upload {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 15px;
+.quiz-preview {
+    position: relative;
+    width: 100%;
+    padding-top: 75%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.quiz-preview img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    opacity: 0.4;
+    transform: scale(0.8);
+}
+
+.quiz-preview:hover img {
+    opacity: 1;
+    transform: scale(0.9);
 }
 
 .upload-label {
@@ -808,25 +833,9 @@ footer {
     display: none;
 }
 
-.quiz-preview {
-    min-height: 200px;
-    border: 2px dashed var(--sage-green-light);
-    border-radius: var(--border-radius);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
 .no-image {
     color: #888;
     font-style: italic;
-}
-
-.quiz-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
 }
 
 /* Animations */
@@ -1028,178 +1037,91 @@ footer {
     }
 }
 
+/* Image Album Section Styles */
 .image-album-section {
-    margin: 50px 0;
+    padding: 2rem;
     text-align: center;
+    overflow: hidden;
 }
 
 .image-album-section h2 {
     color: var(--sage-green-dark);
-    margin-bottom: 30px;
+    margin-bottom: 2rem;
+    font-size: 2rem;
 }
 
 .image-album {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 20px;
-    margin: 0 auto;
-    padding: 0 20px;
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
-    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    gap: 1.5rem;
+    padding: 1rem;
+    margin: 0 auto;
     max-width: 100%;
 }
 
 .album-image {
-    flex: 0 0 210px;
-    width: 210px;
-    height: 297px;
-    min-width: 210px;
-    scroll-snap-align: center;
-    border: 3px solid var(--sage-green);
-    border-radius: var(--border-radius);
+    flex: 0 0 180px;
+    height: 240px;
+    position: relative;
     overflow: hidden;
-    transition: var(--transition);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background-color: var(--sage-green-light);
+    scroll-snap-align: center;
 }
 
-/* Responsive adjustments for smaller screens */
-@media screen and (max-width: 768px) {
-    .image-album {
-        padding: 0 10px;
-        gap: 15px;
-        margin-bottom: 20px;
-    }
-
-    .album-image {
-        flex: 0 0 180px;
-        width: 180px;
-        height: 254px;
-        min-width: 180px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .album-image {
-        flex: 0 0 150px;
-        width: 150px;
-        height: 212px;
-        min-width: 150px;
-    }
-}
-
-.album-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition);
-    opacity: 0.4;
-}
-
-.album-image:hover img {
-    opacity: 1;
+.album-image:hover {
     transform: scale(1.05);
 }
 
-/* Dark mode support */
-.dark-mode .album-image img {
-    opacity: 0.3;
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: opacity 0.3s ease;
+    opacity: 0.4;
 }
 
-.dark-mode .album-image:hover img {
+.album-image:hover .gallery-img {
     opacity: 1;
 }
 
-/* Floating leaves styles */
 .floating-leaves {
     position: absolute;
-    width: 100%;
-    height: 100%;
     top: 0;
     left: 0;
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
     pointer-events: none;
-    z-index: 1;
 }
 
-.leaf {
-    position: absolute;
-    background-color: var(--sage-green-light);
-    opacity: 0.6;
-    border-radius: 50% 20% 50% 20%;
-    transform: rotate(45deg);
-    z-index: 2;
+/* Hide scrollbar but keep functionality */
+.image-album::-webkit-scrollbar {
+    display: none;
 }
 
-.leaf1 {
-    width: 40px;
-    height: 40px;
-    top: 20%;
-    left: 10%;
-    animation: float 15s infinite ease-in-out;
+.image-album {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-.leaf2 {
-    width: 30px;
-    height: 30px;
-    top: 60%;
-    right: 15%;
-    animation: float 12s infinite ease-in-out reverse;
-}
-
-.leaf3 {
-    width: 25px;
-    height: 25px;
-    bottom: 10%;
-    left: 30%;
-    animation: float 10s infinite ease-in-out 2s;
-}
-
-@keyframes float {
-    0% { transform: translate(0, 0) rotate(45deg); }
-    25% { transform: translate(15px, 15px) rotate(90deg); }
-    50% { transform: translate(0, 30px) rotate(135deg); }
-    75% { transform: translate(-15px, 15px) rotate(180deg); }
-    100% { transform: translate(0, 0) rotate(225deg); }
-}
-
-@media screen and (max-width: 992px) {
-    .floating-leaves {
-        display: block;
-    }
-    
-    .image-album {
-        padding: 0 10px;
-        gap: 15px;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .album-image {
+        flex: 0 0 150px;
+        height: 200px;
     }
 }
 
-@media screen and (max-width: 576px) {
-    .image-album {
-        padding: 0 5px;
-        gap: 10px;
+@media (max-width: 480px) {
+    .album-image {
+        flex: 0 0 120px;
+        height: 160px;
     }
-}
-
-.bio-section {
-    margin-bottom: 50px;
-}
-
-.bio-text {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.bio-text h2 {
-    font-size: 2.5rem;
-    color: var(--sage-green-dark);
-    margin-bottom: 20px;
-}
-
-.bio-text p {
-    margin-bottom: 15px;
-    line-height: 1.8;
 }
 
 /* Resume Modal Styles */
@@ -1272,4 +1194,240 @@ footer {
         opacity: 1;
         transform: scale(1.05);
     }
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow: auto;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: var(--white);
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close-modal:hover {
+    color: var(--sage-green);
+    transform: scale(1.1);
+}
+
+/* Dark mode support for modal */
+.dark-mode .modal {
+    background-color: rgba(0, 0, 0, 0.95);
+}
+
+.dark-mode .close-modal {
+    color: var(--sage-green-light);
+}
+
+.dark-mode .close-modal:hover {
+    color: var(--sage-green);
+}
+
+/* Responsive styles for mobile */
+@media screen and (max-width: 768px) {
+    .quizzes-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .quiz-item {
+        padding: 15px;
+    }
+
+    .quiz-preview {
+        padding-top: 100%; /* Make images more square on mobile */
+    }
+
+    .modal-content {
+        max-width: 95%;
+        max-height: 85vh;
+    }
+
+    .close-modal {
+        top: 10px;
+        right: 20px;
+        font-size: 30px;
+    }
+
+    /* Make quiz images more visible on mobile */
+    .quiz-preview img {
+        opacity: 0.6; /* Slightly more visible by default on mobile */
+    }
+
+    .quiz-preview:hover img {
+        opacity: 0.8; /* Slightly less dramatic hover effect on mobile */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .quizzes-container {
+        padding: 20px 5%;
+    }
+
+    .quiz-item h3 {
+        font-size: 1.1rem;
+    }
+
+    .modal-content {
+        max-width: 98%;
+        max-height: 80vh;
+    }
+
+    .close-modal {
+        top: 5px;
+        right: 15px;
+        font-size: 25px;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+    .quiz-preview img {
+        opacity: 0.7; /* More visible by default on touch devices */
+    }
+
+    .quiz-preview:hover img {
+        opacity: 0.7; /* Remove hover effect on touch devices */
+        transform: none;
+    }
+}
+
+.projects-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    margin-top: 4rem;
+}
+
+.projects-title-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.projects-title-row i {
+    font-size: 2rem;
+    color: var(--sage-green-dark);
+    opacity: 0.5;
+}
+
+.projects-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--sage-green-dark);
+}
+
+.projects-quote {
+    font-style: italic;
+    color: var(--sage-green-dark);
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.about-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    margin-top: 4rem;
+}
+
+.about-title-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.about-title-row i {
+    font-size: 2rem;
+    color: var(--sage-green-dark);
+    opacity: 0.5;
+}
+
+.about-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--sage-green-dark);
+}
+
+.about-quote {
+    font-style: italic;
+    color: var(--sage-green-dark);
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/* Contact page header style */
+body.contact-page header {
+    background-color: var(--white);
+}
+body.contact-page header .logo h1 {
+    color: var(--sage-green-dark);
+}
+body.contact-page header nav ul li a {
+    color: var(--black);
+}
+body.contact-page header nav ul li.active a {
+    color: var(--sage-green-dark);
+}
+body.contact-page header nav ul li.active a::after {
+    background-color: var(--sage-green);
+}
+body.contact-page .mode-toggle button {
+    background-color: var(--sage-green-light);
+}
+body.contact-page .mode-toggle button i {
+    color: var(--black);
+}
+
+body.contact-page.dark-mode header {
+    background-color: #222;
+}
+body.contact-page.dark-mode header .logo h1 {
+    color: #fff;
+}
+body.contact-page.dark-mode header nav ul li a {
+    color: #fff;
+}
+body.contact-page.dark-mode header nav ul li.active a {
+    color: #ece7cf;
+}
+body.contact-page.dark-mode header nav ul li.active a::after {
+    background-color: var(--sage-green-light);
+}
+body.contact-page.dark-mode .mode-toggle button {
+    background-color: var(--sage-green-light);
+}
+body.contact-page.dark-mode .mode-toggle button i {
+    color: var(--black);
+}
+
+.logo h1, .page-title, .welcome-text h2, .featured-work h2, .project-info h3, .about-title, .projects-title, .quiz-section h2, .quiz-intro h1, .quiz-intro h2, .contact-info-box h2, .contact-form-box h2, .footer-section h3, .nav-links a {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
 }
