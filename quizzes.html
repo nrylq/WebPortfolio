@@ -37,90 +37,70 @@
     <section class="quiz-intro">
         <h1 class="sage-green-dark">My Post/Pre Test Compilations</h1>
         <p class="quiz-quote">"Programming isn't about what you know; it's about what you can figure out." - Chris Pine</p>
-        <h2 class="sage-green-dark">Post/Pre Test Compilations</h2>
         <p class="quiz-desc">My quiz compilations from my IT course.</p>
     </section>
 
     <main>
         <section class="quiz-section">
             <h2>POST-TEST QUIZ COLLECTION</h2>
-            <div class="quiz-grid">
-                <div class="quiz-card">
-                    <img src="images/quiz-1.jpg" alt="posttest 1">
-                    <div class="quiz-info">
-                        <h3>POST TEST 1</h3>
-                        <button class="quiz-btn" onclick="openImageModal('images/quiz-1.jpg')">View Quiz</button>
-                    </div>
-                </div>
-                
-                <div class="quiz-card">
-                    <img src="images/quiz-2.jpg" alt="posttest 2">
-                    <div class="quiz-info">
-                        <h3>POST TEST 2</h3>
-                        <button class="quiz-btn" onclick="openImageModal('images/quiz-2.jpg')">View Quiz</button>
-                    </div>
-                </div>
-                
-                <div class="quiz-card">
-                    <img src="images/quiz-3.jpg" alt="posttest 3">
-                    <div class="quiz-info">
-                        <h3>POST TEST 3</h3>
-                        <button class="quiz-btn" onclick="openImageModal('images/quiz-3.jpg')">View Quiz</button>
-                    </div>
-                </div>
-                
-                <div class="quiz-card">
-                    <div class="quiz-info">
-                        <h3>POST TEST 4</h3>
-                        <span class="coming-soon">Upcoming Quiz</span>
-                    </div>
-                </div>
+            <div class="quiz-table-wrapper">
+                <table class="quiz-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Quiz No</th>
+                            <th>Score</th>
+                            <th>Note</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>2025-03-12</td><td>1</td><td>19/20</td><td class="note-cute">Post-Test</td></tr>
+                        <tr><td>2025-03-19</td><td>2</td><td>18/20</td><td class="note-cute">Post-Test</td></tr>
+                        <tr><td>2025-03-26</td><td>3</td><td>20/20</td><td class="note-cute">Post-Test</td></tr>
+                        <tr><td>TBD</td><td>4</td><td>Upcoming</td><td class="note-cute">Post-Test</td></tr>
+                    </tbody>
+                </table>
             </div>
         </section>
 
         <section class="quiz-section">
             <h2>PRE-TEST QUIZ COLLECTION</h2>
-            <div class="quiz-grid">
-                <div class="quiz-card">
-                    <div class="quiz-info">
-                        <h3>PRE-TEST 1</h3>
-                        <span class="coming-soon">Upcoming Quiz</span>
-                    </div>
-                </div>
-                
-                <div class="quiz-card">
-                    <div class="quiz-info">
-                        <h3>PRE-TEST 2</h3>
-                        <span class="coming-soon">Upcoming Quiz</span>
-                    </div>
-                </div>
-                
-                <div class="quiz-card">
-                    <div class="quiz-info">
-                        <h3>PRE-TEST 3</h3>
-                        <span class="coming-soon">Upcoming Quiz</span>
-                    </div>
-                </div>
-                
-                <div class="quiz-card">
-                    <div class="quiz-info">
-                        <h3>PRE-TEST 4</h3>
-                        <span class="coming-soon">Upcoming Quiz</span>
-                    </div>
-                </div>
+            <div class="quiz-table-wrapper">
+                <table class="quiz-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Quiz No</th>
+                            <th>Score</th>
+                            <th>Note</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>TBD</td><td>1</td><td>Upcoming</td><td>Pre-Test</td></tr>
+                        <tr><td>TBD</td><td>2</td><td>Upcoming</td><td>Pre-Test</td></tr>
+                        <tr><td>TBD</td><td>3</td><td>Upcoming</td><td>Pre-Test</td></tr>
+                        <tr><td>TBD</td><td>4</td><td>Upcoming</td><td>Pre-Test</td></tr>
+                    </tbody>
+                </table>
             </div>
         </section>
 
         <section class="quiz-section">
             <h2>LONG QUIZ COLLECTION</h2>
-            <div class="quiz-grid">
-                <div class="quiz-card">
-                    <img src="images/long quiz.jpg" alt="long quiz">
-                    <div class="quiz-info">
-                        <h3>LONG QUIZ</h3>
-                        <button class="quiz-btn" onclick="openImageModal('images/long quiz.jpg')">View Quiz</button>
-                    </div>
-                </div>
+            <div class="quiz-table-wrapper">
+                <table class="quiz-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Quiz No</th>
+                            <th>Score</th>
+                            <th>Note</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>2025-04-10</td><td>1</td><td>29/50</td><td>Long Quiz</td></tr>
+                    </tbody>
+                </table>
             </div>
         </section>
     </main>
@@ -155,7 +135,7 @@
     </footer>
 
     <script>
-        // Image Modal functionality
+    
         function openImageModal(imageSrc) {
             const modal = document.getElementById('imageModal');
             const modalImg = document.getElementById('modalImage');

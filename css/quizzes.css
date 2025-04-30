@@ -317,6 +317,21 @@ body.dark-mode .social-links a {
         max-width: 350px;
         margin: 0 auto;
     }
+
+    .quiz-table-wrapper {
+        padding: 1rem 0.8rem;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+    .quiz-table {
+        font-size: 0.95rem;
+    }
+    .quiz-table th, .quiz-table td {
+        padding: 0.6rem 0.9rem;
+    }
+    .quiz-table th {
+        font-size: 1.05rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -443,4 +458,208 @@ body.dark-mode .quiz-intro h2 {
 
 :root {
     --sage-green-light: #d1e0c5;
+}
+
+/* Cutesy Green Table Enhancements */
+.quiz-table-wrapper {
+    position: relative;
+    overflow-x: auto;
+    margin: 0 auto;
+    max-width: 700px;
+    background: linear-gradient(135deg, #eaf4ec 0%, #d1e0c5 100%);
+    border-radius: 22px;
+    box-shadow: 0 4px 18px rgba(136, 160, 120, 0.13);
+    padding: 2rem 1.2rem;
+    border: 2.5px solid #a8d5ba;
+}
+
+.quiz-table-wrapper::before {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 22px;
+    background-image:
+      radial-gradient(circle, #b7d6b0 0.5px, transparent 1.5px),
+      radial-gradient(circle, #a8d5ba 0.7px, transparent 1.7px),
+      radial-gradient(circle, #8ea676 1px, transparent 2px);
+    background-size: 40px 40px, 60px 60px, 90px 90px;
+    background-position: 0 0, 20px 20px, 10px 30px;
+    opacity: 0.45;
+    animation: glitter-move 3.5s linear infinite;
+    z-index: 1;
+}
+
+@keyframes glitter-move {
+    0% { background-position: 0 0, 20px 20px, 10px 30px; }
+    100% { background-position: 40px 40px, 80px 80px, 50px 70px; }
+}
+
+.quiz-table, .quiz-table th, .quiz-table td {
+    position: relative;
+    z-index: 2;
+}
+
+.quiz-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: transparent;
+    font-size: 1.08rem;
+    color: #46624a;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.quiz-table th, .quiz-table td {
+    padding: 1rem 1.3rem;
+    text-align: center;
+}
+
+.quiz-table th {
+    background: #b7d6b0;
+    color: #3b5c3b;
+    font-weight: 700;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border-bottom: 2.5px solid #8ea676;
+    letter-spacing: 1.5px;
+    font-size: 1.15rem;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+}
+
+.quiz-table th:first-child::before {
+    content: '';
+}
+
+.quiz-table tr {
+    transition: background 0.2s;
+}
+
+.quiz-table tbody tr {
+    background: #f8fbf7;
+    border-radius: 12px;
+}
+
+.quiz-table tbody tr:hover {
+    background: #b7d6b0 !important;
+    color: #2d3d2d;
+}
+
+.quiz-table td {
+    border-bottom: 1.5px dashed #b7d6b0;
+    font-size: 1.04rem;
+}
+
+.quiz-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.quiz-table td.note-cute {
+    position: relative;
+    padding-left: 2.2em !important;
+}
+.quiz-table td.note-cute::before {
+    content: none !important;
+    display: none !important;
+}
+
+/* Dark mode support */
+body.dark-mode .quiz-table-wrapper {
+    background: linear-gradient(135deg, #232d22 0%, #46624a 100%);
+    box-shadow: 0 4px 18px rgba(136, 160, 120, 0.23);
+    border: 2.5px solid #46624a;
+}
+body.dark-mode .quiz-table-wrapper::before {
+    background-image:
+      radial-gradient(circle, #46624a 0.5px, transparent 1.5px),
+      radial-gradient(circle, #8ea676 0.7px, transparent 1.7px),
+      radial-gradient(circle, #a8d5ba 1px, transparent 2px);
+    opacity: 0.32;
+}
+body.dark-mode .quiz-table th {
+    background: #46624a;
+    color: #d1e0c5;
+    border-bottom: 2.5px solid #8ea676;
+}
+body.dark-mode .quiz-table td {
+    color: #d1e0c5;
+    border-bottom: 1.5px dashed #46624a;
+}
+body.dark-mode .quiz-table tbody tr {
+    background: #232d22;
+}
+body.dark-mode .quiz-table tbody tr:hover {
+    background: #46624a !important;
+    color: #d1e0c5;
+}
+body.dark-mode .quiz-table td.note-cute::before {
+    color: #a8d5ba;
+}
+
+.quiz-table thead {
+    position: relative;
+    z-index: 2;
+}
+
+.quiz-table thead::after {
+    content: none !important;
+    display: none !important;
+}
+
+.quiz-table tbody {
+    position: relative;
+    z-index: 2;
+}
+
+.quiz-table tbody::after {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    top: -6px; left: -6px; right: -6px; bottom: -6px;
+    border-bottom-left-radius: 22px;
+    border-bottom-right-radius: 22px;
+    background-image:
+      radial-gradient(circle, #eaf4ec 1.2px, transparent 2.5px),
+      radial-gradient(circle, #a8d5ba 1.5px, transparent 3px),
+      radial-gradient(circle, #8ea676 2.2px, transparent 4px),
+      radial-gradient(circle, #b7d6b0 1.5px, transparent 3px);
+    background-size: 32px 32px, 48px 48px, 72px 72px, 90px 90px;
+    background-position: 0 0, 16px 16px, 8px 24px, 30px 10px;
+    opacity: 0.45;
+    animation: glitter-move-expanded 2.5s linear infinite;
+    z-index: 1;
+}
+
+body.dark-mode .quiz-table tbody::after {
+    background-image:
+      radial-gradient(circle, #46624a 1.2px, transparent 2.5px),
+      radial-gradient(circle, #8ea676 1.5px, transparent 3px),
+      radial-gradient(circle, #a8d5ba 2.2px, transparent 4px),
+      radial-gradient(circle, #b7d6b0 1.5px, transparent 3px);
+    opacity: 0.32;
+}
+
+.quiz-table tbody tr, .quiz-table tbody td {
+    position: relative;
+    z-index: 2;
+}
+
+.gummy-bear {
+    display: inline-block;
+    margin-right: 0.3em;
+    vertical-align: middle;
+    transition: transform 0.2s;
+}
+.gummy-bear svg {
+    filter: drop-shadow(0 1px 2px #b7d6b0);
+    border-radius: 6px;
+}
+.gummy-bear:hover {
+    transform: scale(1.15) rotate(-6deg);
+}
+.gummy-bear svg ellipse:first-child {
+    /* Glossy highlight */
+    filter: blur(0.5px) brightness(1.15);
 } 
